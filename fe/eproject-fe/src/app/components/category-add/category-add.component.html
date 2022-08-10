@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col">
+    <form action="">
+      <div class="card">
+        <div class="card-header">Add new Category</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="categoryId">Category Id :</label>
+            <input
+              type="text"
+              class="form-control"
+              name="categoryId"
+              id="categoryId"
+              aria-describedby="categoryHelpId"
+              placeholder="Category Id"
+              [(ngModel)]="category.categoryId"
+            />
+            <small id="categoryHelpId" class="form-text text-muted"
+              >Category Id is required</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="categoryName">Category Name :</label>
+            <input
+              type="text"
+              class="form-control"
+              name="categoryName"
+              id="categoryName"
+              aria-describedby="categoryNamHelpId"
+              placeholder="Category Name"
+              [(ngModel)]="category.categoryName"
+            />
+            <small id="categoryNamHelpId" class="form-text text-muted"
+              >Category Name is required</small
+            >
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <button class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
