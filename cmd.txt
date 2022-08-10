@@ -1,5 +1,5 @@
 Angular : 
-ng.cmd serve --open : chạy chương trình
+ng.cmd serve --open : chạy chương trình FE Angular
 npm install bootstrap@4 : setup bootstrap
 ng new nameProject
 
@@ -8,3 +8,8 @@ npm install -g json-server
 
 cd src\assets\db
 json-server.cmd db.json
+
+npm install nodemon -g
+nodemon.cmd server.js chạy BE
+
+ng.cmd add @ng-bootstrap/ng-bootstrap
