@@ -1,0 +1,10 @@
+Angular : 
+ng.cmd serve --open : chạy chương trình
+npm install bootstrap@4 : setup bootstrap
+ng new nameProject
+
+npm install body-parser dotenv mongoose morgan 
+npm install -g json-server
+
+cd src\assets\db
+json-server.cmd db.json
