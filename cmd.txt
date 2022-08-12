@@ -13,3 +13,23 @@ npm install nodemon -g
 nodemon.cmd server.js chạy BE
 
 ng.cmd add @ng-bootstrap/ng-bootstrap
+
+
+npm install --legacy-peer-deps
+
+Account HSSK : sopen/Sopen@123
+
+git clone http://10.60.156.11/hssk_v2/hssk-quannhan/immunization
+git clone http://10.60.156.11/hssk_v2/hssk-quannhan/medicalrecord
+git clone http://10.60.156.11/hssk_v2/hssk-quannhan/resource
+git clone http://10.60.156.11/hssk_v2/hssk-quannhan/patient
+git clone http://10.60.156.11/hssk_v2/hssk-quannhan/report
+
+git checkout sopen-build-t7
+git checkout develop
+
+@HostListener
+@Input()
+@Output()
+markAllAsTouched
+
