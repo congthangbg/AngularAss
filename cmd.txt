@@ -34,79 +34,10 @@ git checkout develop
 @Output()
 markAllAsTouched
 
-http://localhost:4200/#/quan-tri/quan-tri-he-thong/tinh-hinh-sk-ct-theo-don-vi
-
-http://localhost:4200/#/bao-cao/bao-cao-khac/tinh-hinh-suc-khoe-theo-don-vi
-
-
+git checkout sopen-tinh-hinh-sk-theo-dvi
 
 NATIVE
 npx react-native run-android 
 
+'${parent.indexExcel}
 
-
-
-
-SELECT t.patient_id,t.fullname,t.organization_id,c.name_vi
-FROM patients t 
-left join cats_organizations c on c.organization_id = t.organization_id
-WHERE 1=1 and  t.org_level =1
-;
-
-SELECT t.patient_id as patientId,t.military_code militaryCode,t.gender_id,
-t.fullname,t.birthday,t.medical_identifier_code as medicalIdentifierCode ,c.name_vi nameUnit,
-t.organization_id as organizationId,
-c.organization_parent_id organizationParentId,
-m.diseases_name as diseasesName,
-g.name_vi as genderName
-FROM patients t 
-left join cats_organizations c on c.organization_id = t.organization_id
-left join medical_records_diagnoses_discharge m on m.patient_id = t.patient_id
-left join cats_genders g on g.gender_id = t.gender_id
-WHERE 1=1  ;
-GROUP BY t.organization_id 
-ORDER BY t.patient_id ,t.military_code,t.gender_id,
-t.fullname,t.birthday,t.medical_identifier_code  ,c.name_vi,
-c.organization_parent_id ,
-m.diseases_name ,
-g.name_vi;
-
-
-SELECT * FROM patients ;
-SELECT * FROM cats_organizations;
-
-
-select menu_id as menuId, group_menu_id as groupMenuId, menu_parent_id as menuParentId, 
-                    code, name, path, css_icon as cssIcon, order_number as orderNumber, description, is_active as isActive  
-                    from sys_menu  
-                    where 1=1 
--- 										(:isActive is null or is_active = :isActive)  
---                     and lower(name) like %:name%  
-                    and is_delete = 0  
-                    order by menuId;
-
-
-
-
-WITH RECURSIVE generation AS (
-    SELECT patient_id,
-        fullname,
-        organization_id,
-        0 AS generation_number
-    FROM patients
-    WHERE organization_id IS NULL
- 
-UNION ALL
- 
-    SELECT child.patient_id,
-        child.fullname,
-        generation_number+1 AS generation_number
-    FROM patients child
-    JOIN generation g
-      ON g.patient_id = child.organization_id
-)
- 
-SELECT
-     fullname,
-     generation_number
-FROM generation;
